@@ -1,4 +1,4 @@
-from textnode import TextNode, TextType
+from src.textnode import TextNode, TextType
 
 
 def split_nodes_delimiter(old_nodes, delimiter, text_type):
@@ -12,19 +12,22 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
             # if it is then split it by the delimiter
             # so we can convert it to different node types
             split_node_text = old_node.text.split(delimiter)
+
             if len(split_node_text) % 2 == 0:
                 raise ValueError("Must use valid markdown syntax")
             for idx, text in enumerate(split_node_text):
-                # odd-indexed parts are whatever the delimter is and
+                # odd-indexed parts are whatever the delimiter is and
                 # even-indexed parts are Text
+                if text == "":
+                    continue
                 if idx % 2 == 0:
                     result.append(TextNode(text, TextType.TEXT))
                 if idx % 2 != 0:
                     result.append(TextNode(text, text_type))
-    # print(result)
+
     return result
 
 
-node = TextNode("This is text with a `code block` word", TextType.TEXT)
-new_nodes = split_nodes_delimiter([node], "`", TextType.CODE)
-print(new_nodes)
+# node = TextNode("This is text with a `code block` word", TextType.TEXT)
+# new_nodes = split_nodes_delimiter([node], "`", TextType.CODE)
+# print(new_nodes)
