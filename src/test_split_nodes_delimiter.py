@@ -1,7 +1,7 @@
 import unittest
 
-from src.split_nodes_delimiter import split_nodes_delimiter
-from src.textnode import TextType, TextNode
+from split_nodes_delimiter import split_nodes_delimiter
+from textnode import TextType, TextNode
 
 
 class TestSplitNodesDelimiter(unittest.TestCase):
@@ -14,7 +14,7 @@ class TestSplitNodesDelimiter(unittest.TestCase):
             TextNode("code block", TextType.CODE),
             TextNode(" word", TextType.TEXT),
         ]
-        
+
         self.assertEqual(new_nodes, test_case)
 
     def test_not_type_text(self):

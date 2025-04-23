@@ -13,4 +13,4 @@
 # deactivate
 
 # if tests break try this
-python3 -m unittest discover -s src/tests
+python3 -m unittest discover -s src

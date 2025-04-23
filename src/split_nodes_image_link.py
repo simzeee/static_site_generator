@@ -1,5 +1,5 @@
-from src.extract_markdown_images import extract_markdown_images, extract_markdown_links
-from src.textnode import TextNode, TextType
+from extract_markdown_images import extract_markdown_images, extract_markdown_links
+from textnode import TextNode, TextType
 
 """
 Extract all images from the original text

@@ -1,9 +1,9 @@
 import unittest
-from src.text_node_to_html_node import text_node_to_html_node
-from src.textnode import TextNode, TextType
+from text_node_to_html_node import text_node_to_html_node
+from textnode import TextNode, TextType
 
 
-class TestTextToNod(unittest.TestCase):
+class TestTextToNode(unittest.TestCase):
     def test_text(self):
         node = TextNode("This is a text node", TextType.TEXT)
         html_node = text_node_to_html_node(node)
