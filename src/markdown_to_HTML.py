@@ -148,12 +148,28 @@ def markdown_to_html_node(markdown):
     return parent_node
 
 
+def extract_title(markdown):
+    lines = markdown.split("\n")
+    heading = ""
+    for line in lines:
+        if line.startswith('# '):
+            heading = line.strip("#").lstrip()
+            return heading
+    else:
+        raise Exception("this markdown does not include a title")
+
 md = """
-    > This is a
-    > blockquote block
+# Tolkien Fan Club
 
-    this is paragraph text
+![JRR Tolkien sitting](/images/tolkien.png)
 
-    """
+Here's the deal, **I like Tolkien**.
 
-markdown_to_html_node(md)
+> "I am in fact a Hobbit in all but size."
+>
+> -- J.R.R. Tolkien
+
+## Blog posts
+"""
+
+print(extract_title(md))

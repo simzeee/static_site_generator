@@ -1,5 +1,5 @@
 import unittest
-from markdown_to_HTML import markdown_to_html_node
+from markdown_to_HTML import markdown_to_html_node, extract_title
 
 
 class TestMarkdownToHTMLNode(unittest.TestCase):
@@ -100,3 +100,16 @@ class TestMarkdownToHTMLNode(unittest.TestCase):
             html,
             "<div><pre><code>This is text that _should_ remain\nthe **same** even with inline stuff\n</code></pre></div>",
         )
+
+    def test_extract_title(self):
+        md = "# Tolkien Fan Club\n\n![JRR Tolkien sitting](/images/tolkien.png)"
+
+        title = extract_title(md)
+        self.assertEqual(title, "Tolkien Fan Club")
+
+    def test_no_header(self):
+
+        # Test case 2: No h1 header
+        md_no_title = "## Secondary heading\n\nContent here"
+        with self.assertRaises(Exception):
+            extract_title(md_no_title)
