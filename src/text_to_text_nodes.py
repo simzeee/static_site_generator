@@ -3,7 +3,7 @@ from split_nodes_image_link import split_nodes_image, split_nodes_link
 from textnode import TextType, TextNode
 
 
-def text_to_textnodes(text):
+def text_to_text_nodes(text):
     new_node = TextNode(text, TextType.TEXT)
     delimiters = [("**", TextType.BOLD), ("_", TextType.ITALIC), ("`", TextType.CODE)]
     result = [new_node]

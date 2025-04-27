@@ -1,7 +1,7 @@
 import unittest
 
 from textnode import TextNode, TextType
-from text_to_textnodes import text_to_textnodes
+from text_to_text_nodes import text_to_text_nodes
 
 
 class TestTextToTextNode(unittest.TestCase):
@@ -21,5 +21,5 @@ class TestTextToTextNode(unittest.TestCase):
             TextNode(" and a ", TextType.TEXT),
             TextNode("link", TextType.LINK, "https://boot.dev"),
         ]
-        new_nodes = text_to_textnodes(test_text)
+        new_nodes = text_to_text_nodes(test_text)
         self.assertEqual(test_case, new_nodes)
