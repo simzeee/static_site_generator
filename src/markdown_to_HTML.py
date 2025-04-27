@@ -152,24 +152,8 @@ def extract_title(markdown):
     lines = markdown.split("\n")
     heading = ""
     for line in lines:
-        if line.startswith('# '):
+        if line.startswith("# "):
             heading = line.strip("#").lstrip()
             return heading
     else:
         raise Exception("this markdown does not include a title")
-
-md = """
-# Tolkien Fan Club
-
-![JRR Tolkien sitting](/images/tolkien.png)
-
-Here's the deal, **I like Tolkien**.
-
-> "I am in fact a Hobbit in all but size."
->
-> -- J.R.R. Tolkien
-
-## Blog posts
-"""
-
-print(extract_title(md))
